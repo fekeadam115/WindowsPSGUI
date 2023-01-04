@@ -17,6 +17,7 @@ def buttonCommand(command):
     global label_greenCommand
     label_greenCommand.config(text=header_text)
     text.insert(END, result + '\n\n')
+    text.yview(END)
 
 
 def clearConsoleLog():
@@ -65,11 +66,14 @@ f1.grid(row=1, column=0, rowspan=2)
 
 # Date and Time button
 button_datetime = Button(f1, text="Date and Time", command=lambda: buttonCommand("Get-Date"))
-button_datetime.grid(row=1, column=0, padx=20, pady=20)
+button_datetime.grid(row=1, column=0, padx=10, pady=10)
 
 # List Power Plan Button
 button_powercfg = Button(f1, text="List Power Plans", command=lambda: buttonCommand("powercfg /list"))
-button_powercfg.grid(row=2, column=0, padx=20, pady=20)
+button_powercfg.grid(row=2, column=0, padx=10, pady=10)
+
+button_systemscan = Button(f1, text="System Scan", command=lambda: buttonCommand("sfc /scannow"))
+button_systemscan.grid(row=3, column=0, padx=10, pady=10)
 
 
 root.mainloop()
