@@ -4,7 +4,12 @@
 from tkinter import *
 import subprocess
 
-root = Tk()
+
+if __name__ == "__main__":
+    root = Tk()
+
+from functions import *
+
 root.title("PowerShell GUI")
 root.iconbitmap("images/powershell.ico")
 
@@ -72,8 +77,9 @@ button_datetime.grid(row=1, column=0, padx=10, pady=10)
 button_powercfg = Button(f1, text="List Power Plans", command=lambda: buttonCommand("powercfg /list"))
 button_powercfg.grid(row=2, column=0, padx=10, pady=10)
 
-button_systemscan = Button(f1, text="System Scan", command=lambda: buttonCommand("sfc /scannow"))
-button_systemscan.grid(row=3, column=0, padx=10, pady=10)
+# button_systemscan = Button(f1, text="IP Configuration", command=ping())
+# button_systemscan.grid(row=3, column=0, padx=10, pady=10)
 
 
-root.mainloop()
+if __name__ == "__main__":
+    root.mainloop()
