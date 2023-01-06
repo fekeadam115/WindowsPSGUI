@@ -26,11 +26,23 @@ def clearConsoleLog():
     text.delete("1.0", END)
 
 
+def setDarkMode():
+    pass
+
+
 def openNewWindow():
     settings_window = Toplevel(root)
     settings_window.title("Settings")
     settings_window.geometry("500x200")
     settings_window.iconbitmap("images/powershell.ico")
+    dark_mode_flag = BooleanVar()
+    print(dark_mode_flag.get())
+    dark_mode = Checkbutton(settings_window,
+                            text="Dark Mode",
+                            variable=dark_mode_flag,
+                            onvalue=True, offvalue=False,
+                            command=setDarkMode)
+    dark_mode.pack()
     Label(settings_window, text="Settings Menu").pack()
 
 
