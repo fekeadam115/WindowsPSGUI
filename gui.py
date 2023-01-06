@@ -7,11 +7,8 @@ import subprocess
 
 if __name__ == "__main__":
     root = Tk()
-
-from functions import *
-
-root.title("PowerShell GUI")
-root.iconbitmap("images/powershell.ico")
+    root.title("PowerShell GUI")
+    root.iconbitmap("images/powershell.ico")
 
 
 def buttonCommand(command):
@@ -29,6 +26,14 @@ def clearConsoleLog():
     text.delete("1.0", END)
 
 
+def openNewWindow():
+    settings_window = Toplevel(root)
+    settings_window.title("Settings")
+    settings_window.geometry("500x200")
+    settings_window.iconbitmap("images/powershell.ico")
+    Label(settings_window, text="Settings Menu").pack()
+
+
 # Title Frame
 frame_title = Frame(root)
 frame_title.grid(row=0, column=0)
@@ -41,7 +46,7 @@ label_title.grid(row=0, column=0)
 label_subtitle = Label(frame_title, text="By: Adam Feke", font="Helvetica 14 italic")
 label_subtitle.grid(row=1, column=0)
 
-button_settings = Button(frame_title, text="Settings")
+button_settings = Button(frame_title, text="Settings", command=openNewWindow)
 button_settings.grid(row=0, column=1, rowspan=2, padx=20, pady=20)
 
 f2 = Frame(root)
